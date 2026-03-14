@@ -1,0 +1,58 @@
+TODO as Typst
+
+we need to define or such that:
+
+1. or fls fls -> fls
+2. or tru fls -> tru
+3. or fls tru -> tru
+4. or tru tru -> tru
+
+(\b. \c. b tru c)
+
+reductions for each case:
+1.
+	(\b. \c. b tru c) fls fls
+	(\c. fls tru c) fls
+	fls tru fls
+	(\t. \f. \f) tru fls
+	(\f. f) fls
+	fls - correct
+2.	(\b. \c. b tru c) tru fls
+	(\c. tru tru c) fls
+	tru tru fls
+	(\t. \f. \t) tru fls
+	(\f. tru) fls
+	tru - correct
+3. (\b. \c. b tru c) fls tru
+	(\c. fls tru c) tru
+	fls tru tru
+	(\t. \f. \f) tru tru
+	(\f. f) tru
+	tru - correct
+3. (\b. \c. b tru c) tru tru
+	(\c. tru tru c) tru
+	tru tru tru
+	(\t. \f. \t) tru tru
+	(\f. tru) tru
+	tru - correct
+
+we need to define not such that:
+1. not fls -> tru
+2. not tru -> fls
+
+(\b. b fls tru)
+
+reductions:
+1.
+	(\b fls tru) fls
+	fls fls tru
+	(\t. \f. f) fls tru
+	(\f. f) tru
+	tru - correct
+2.
+	(\b fls tru) tru
+	tru fls tru
+	(\t. \f. t) fls tru
+	(\f. fls) tru
+	fls - correct
+	
