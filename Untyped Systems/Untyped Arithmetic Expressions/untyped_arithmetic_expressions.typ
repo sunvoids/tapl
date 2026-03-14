@@ -55,3 +55,39 @@ There are three cases of how a particular term $t$ ended up in $S_(k)$ to consid
   When defining $S_(k+1)$, we will use $t^'$ again to include ${"succ" t^', "pred" t^', "iszero" t^'}$ in that new set. Therefore, $t in S_(k+1)$.
 + This case follows the same logic as the previous one. $t = "if" t_1 "then" t_2 "else" t_3$, where $t_1, t_2, t_3 in S_(k-1)$ and $t in S_k$.
   From hypothesis, $t_1, t_2, t_3 in S_k$. Thus, these terms will be used when defining $S_(k+1)$, meaning $t in S_(k+1)$.
+
+We have proved $t in S_k -> t in S_(k+1)$. Therefore, $S_k subset.eq S_(k+1)$.
+
+= Proof for theorem 3.3.4
+To do.
+
+= Exercise 3.5.5
+To do.
+
+= Exercise 3.5.10
+To do.
+
+= Exercises 3.5.13
+
+== 1.
+
+Given $"if true then" t_2 "else" t_3 -> t_3$,
+
+1. Theorem 3.5.4 becomes invalid, as *E-Funny1* and *E-IfTrue* have the same form, but different evaluations. We can express this as:
+$
+  "if true then" t_2 "else" t_3 -> t_2 and "if true then" t_2 "else" t_3 -> t_3
+$
+$
+  t_2 eq.not t_3
+$
+
+2. Theorem 3.5.7 remains valid. $t_3$ cannot be evaluated any further, so it is in normal form.
+
+3. Theorem 3.5.8 remains valid and it's proof still applies, even though the definition of *E-Funny1* "collides" with *E-IfTrue*.
+
+4. Theorem 3.5.11 becomes invalid, since theorem 3.5.4 is invalid -- $u eq.not u^'$.
+
+5. Theorem 3.5.12 remains valid. If $"size"(t_3) > 1$, $t_3$ is to be evaluated again, that is $t_3 attach(->, tr:*) t_3^'$. Otherwise, $t_3$ is a value, and since theorem 3.5.7 is valid, it is in normal form. 
+
+== 2. 
+To do.
